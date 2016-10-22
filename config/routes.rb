@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   resources :user_profs
   resources :events
   resources :places
+  resources :comments
   get 'check_user_prof', to: 'user_profs#check'
 end
