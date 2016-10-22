@@ -1,7 +1,16 @@
 <%= form_for(@event) do |f| %>
-	タイトル
+	<p>タイトル</p>
 	<%= f.text_field :title %>
-	内容
+
+ 	<p>予定日</p>
+	<%= f.date_select :date, :use_month_numbers => true %>
+
+	<p>予定時</p>
+	<%= f.datetime_select :time %>
+
+	<p>内容</p>
 	<%= f.text_field :body %>
-	<%= f.submit "保存" %>
+	<p>
+		<%= f.submit "保存" %>
+	</p>
 <% end %>

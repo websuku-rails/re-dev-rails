@@ -1,7 +1,8 @@
 class CreateEvents < ActiveRecord::Migration[5.0]
   def change
     create_table :events do |t|
-      t.string   "date"
+      t.date     "date"
+      t.datetime "time"
       t.string   "title"
       t.string   "body"
       t.integer  "event_id"
