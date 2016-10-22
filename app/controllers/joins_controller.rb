@@ -2,8 +2,9 @@ class JoinsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    @event = Event.find(params[:event_id])
-    @join = current_user.joins.build(event: @event)
+    @event = Event.find(params[:id])
+    @user_prof = UserProf.find(current_user.id)
+    @join = @user_prof.joins.new(event: @event)
 
     if @join.save
       redirect_to events_url, notice: "参加申請したやで"
@@ -13,7 +14,8 @@ class JoinsController < ApplicationController
   end
 
   def destroy
-    @join = current_user.joins.find_by!(event_id: params[:event_id])
+    @user_prof = UserProf.find(current_user.id)
+    @join = @user_prof.joins.find_by!(event_id: params[:id])
     @join.destroy
     redirect_to events_url, notice: "参加取り消しやで"
   end

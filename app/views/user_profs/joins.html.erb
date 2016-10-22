@@ -1,5 +1,4 @@
-
-<%= link_to user_prof_path(@user) do %>
+<%= link_to user_prof_path(@user_prof) do %>
   <div class="text">投稿数</div>
   <div class="num"><%= @user_prof.events.count %></div>
 <% end %>
@@ -14,7 +13,7 @@
     参加予定の勉強会はありません
   </div>
 <% end %>
-<% @user_prof.joins.map { |f| f.post }.each do |post| %>
+<% @user_prof.joins.map { |f| f.event }.each do |event| %>
   <h4 class="user">
     <span class="user-name">
       <%= link_to event.user_prof.name, user_prof_path(event.user_prof) %>
