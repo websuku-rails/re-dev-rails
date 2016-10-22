@@ -1,19 +1,20 @@
-<p>name</p>
-<h3><%= @user_prof.name %></h3>
-<p>age</p>
-<h3><%= @user_prof.age %></h3>
-<p>gender</p>
-<h3><%= @user_prof.gender %></h3>
-<p>introduction</p>
-<h3><%= @user_prof.introduction %></h3>
+
+<%= link_to user_prof_path(@user) do %>
+  <div class="text">投稿数</div>
+  <div class="num"><%= @user_prof.events.count %></div>
+<% end %>
 
 <%= link_to joins_user_prof_path(@user_prof) do %>
-  <div class="text">参加勉強会一覧</div>
+  <div class="text">いいね一覧</div>
   <div class="num"><%= @user_prof.joins.count %></div>
 <% end %>
 
-<p>自己開催のイベント</p>
-<% @user_prof.events.each do |event| %>
+<% if @user_prof.joins.empty? %>
+  <div class="list-group-item">
+    参加予定の勉強会はありません
+  </div>
+<% end %>
+<% @user_prof.joins.map { |f| f.post }.each do |post| %>
   <h4 class="user">
     <span class="user-name">
       <%= link_to event.user_prof.name, user_prof_path(event.user_prof) %>

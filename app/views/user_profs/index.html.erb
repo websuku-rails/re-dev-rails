@@ -1,3 +1,5 @@
+<h2>user一覧</h2>
 <% @user_profs.each do |user_prof| %>
-	<h1><%= user_prof.name %></h1>
+	<h2><%= user_prof.name %></h2>
+	<%= link_to "詳細", user_prof_path(user_prof.id) %>
 <% end %>

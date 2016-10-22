@@ -8,7 +8,7 @@ class UserProfsController < ApplicationController
 	end
 
 	def create
-			@user_prof = UserProf.new(user_prof_params)
+		@user_prof = UserProf.new(user_prof_params)
 		@user_prof.user_id = current_user.id
 		if @user_prof.save
 			redirect_to root_path, notice: "設定が完了しました" and return
@@ -22,6 +22,7 @@ class UserProfsController < ApplicationController
 	end
 
 	def show
+		@user_profs = UserProf.find(params[:id])
 	end
 
 	def edit
@@ -48,6 +49,10 @@ class UserProfsController < ApplicationController
 		@user_prof.destroy
 		redirect_to events_path
 	end
+
+	def joins
+    @user_prof = UserProf.find(params[:id])
+  end
 
 	private
 	def user_prof_params

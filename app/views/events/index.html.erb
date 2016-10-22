@@ -2,7 +2,16 @@
 <% @events.each do |event| %>
 	<h1><%= event.title %></h1>
 	<h1><%= event.body %></h1>
-	<span>
+	<p>
 		<%= link_to "詳しく見る", event_path(event.id) %>
-	</span>
+	</p>
+	<% if event.joined_by? current_user %>
+		<p>
+			<%= link_to "いいね解除", event_joins_path(event), method: :delete %>
+		</p>
+	<% else %>
+		<p>
+			<%= link_to "いいね", event_joins_path(event), method: :post %>
+		</p>
+	<% end %>
 <% end %>

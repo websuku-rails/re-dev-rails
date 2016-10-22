@@ -11,6 +11,8 @@ class EventsController < ApplicationController
 		@event = Event.new(post_params)
 		@event.user_id = current_user.id
 		if @event.save
+			@event.event_id = @event.id
+			@event.save
 			redirect_to @event, notice: "投稿しました"
 		else
 			render :new
