@@ -22,7 +22,7 @@ class UserProfsController < ApplicationController
 	end
 
 	def show
-		@user_profs = UserProf.find(params[:id])
+		@user_prof = UserProf.find(params[:id])
 	end
 
 	def edit

@@ -13,6 +13,7 @@
     参加予定の勉強会はありません
   </div>
 <% end %>
+
 <% @user_prof.joins.map { |f| f.event }.each do |event| %>
   <h4 class="user">
     <span class="user-name">

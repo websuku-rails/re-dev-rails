@@ -3,6 +3,6 @@ class Join < ApplicationRecord
   belongs_to :event
 
   validates :user_prof, presence: true
-  validates :user_id, uniqueness: { scope: :event_id }
+  validates :user_prof_id, uniqueness: { scope: :event_id }
   validates :event, presence: true
 end
