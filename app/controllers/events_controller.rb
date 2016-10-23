@@ -8,11 +8,9 @@ class EventsController < ApplicationController
 	end
 
 	def create
-		@event = Event.new(post_params)
-		@event.user_id = current_user.id
+		@event = Event.new(params[:id])
+		@event.user_id = @event.user_prof_id = current_user.id
 		if @event.save
-			@event.event_id = @event.id
-			@event.save
 			redirect_to @event, notice: "投稿しました"
 		else
 			render :new
@@ -30,7 +28,7 @@ class EventsController < ApplicationController
 	end
 
 	def update
-		if @event.update
+		if @event.update(event_params)
 			redirect_to @event, notice: "編集しました"
 		else
 			render :edit

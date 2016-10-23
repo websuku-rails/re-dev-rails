@@ -12,3 +12,14 @@
 
 <p>本文</p>
 <h3><%= @event.body %></h3>
+
+<% @event.user_profs.each do |user_prof| %>
+    <h2>
+      <%= link_to user_prof.name, user_prof_path(user_prof.id) %>
+    </h2>
+  <div class="post-body">
+    <%= user_prof.age %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', events_path %>

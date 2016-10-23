@@ -1,5 +1,10 @@
 source 'https://rubygems.org'
 
+
+# image_up_loader
+gem 'carrierwave'
+gem 'rmagick'
+
 # use jquery-turbolinks
 gem 'jquery-turbolinks'
 # devese

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161022060748) do
+ActiveRecord::Schema.define(version: 20161023003101) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "body"
@@ -26,9 +26,17 @@ ActiveRecord::Schema.define(version: 20161022060748) do
     t.string   "title"
     t.string   "body"
     t.integer  "event_id"
+    t.integer  "user_prof_id"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "events_user_profs", id: false, force: :cascade do |t|
+    t.integer "event_id"
+    t.integer "user_prof_id"
+    t.index ["event_id"], name: "index_events_user_profs_on_event_id"
+    t.index ["user_prof_id"], name: "index_events_user_profs_on_user_prof_id"
   end
 
   create_table "joins", force: :cascade do |t|

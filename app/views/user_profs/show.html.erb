@@ -12,14 +12,11 @@
   <div class="num"><%= @user_prof.joins.count %></div>
 <% end %>
 
-<p>自己開催のイベント</p>
+<p>このユーザーの開催イベント</p>
 <% @user_prof.events.each do |event| %>
-  <h4 class="user">
-    <span class="user-name">
-      <%= link_to event.user_prof.name, user_prof_path(event.user_prof) %>
-    </span>
-    <span class="user-id"><%= event.user_prof.name %></span>
-  </h4>
+  <h2>
+    <%= link_to event.title, event_path(event.id) %>
+  </h2>
   <div class="post-body">
     <%= event.body %>
   </div>

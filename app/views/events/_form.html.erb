@@ -6,10 +6,11 @@
 	<%= f.date_select :date, :use_month_numbers => true %>
 
 	<p>予定時</p>
-	<%= f.datetime_select :time %>
+	<%= f.datetime_select :time, :use_month_numbers => true  %>
 
 	<p>内容</p>
 	<%= f.text_field :body %>
+
 	<p>
 		<%= f.submit "保存" %>
 	</p>
