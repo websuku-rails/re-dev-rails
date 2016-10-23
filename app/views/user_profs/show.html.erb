@@ -11,13 +11,3 @@
   <div class="text">参加勉強会一覧</div>
   <div class="num"><%= @user_prof.joins.count %></div>
 <% end %>
-
-<p>このユーザーの開催イベント</p>
-<% @user_prof.events.each do |event| %>
-  <h2>
-    <%= link_to event.title, event_path(event.id) %>
-  </h2>
-  <div class="post-body">
-    <%= event.body %>
-  </div>
-<% end %>

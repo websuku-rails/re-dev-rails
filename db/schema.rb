@@ -32,13 +32,6 @@ ActiveRecord::Schema.define(version: 20161023003101) do
     t.datetime "updated_at",   null: false
   end
 
-  create_table "events_user_profs", id: false, force: :cascade do |t|
-    t.integer "event_id"
-    t.integer "user_prof_id"
-    t.index ["event_id"], name: "index_events_user_profs_on_event_id"
-    t.index ["user_prof_id"], name: "index_events_user_profs_on_user_prof_id"
-  end
-
   create_table "joins", force: :cascade do |t|
     t.integer  "user_prof_id"
     t.integer  "event_id"
@@ -66,6 +59,7 @@ ActiveRecord::Schema.define(version: 20161023003101) do
     t.integer  "age"
     t.integer  "gender"
     t.string   "introduction"
+    t.integer  "event_id"
     t.integer  "user_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false

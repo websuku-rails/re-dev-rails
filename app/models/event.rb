@@ -1,5 +1,4 @@
 class Event < ApplicationRecord
-  has_and_belongs_to_many :user_prof
   has_many :joins, dependent: :destroy
 
   def joined_by? user_prof

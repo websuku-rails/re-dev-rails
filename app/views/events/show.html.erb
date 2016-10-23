@@ -13,12 +13,18 @@
 <p>本文</p>
 <h3><%= @event.body %></h3>
 
-<% @event.user_profs.each do |user_prof| %>
-    <h2>
+<%= link_to "編集", edit_event_path %>
+
+<h2>参加予定ユーザー</h2>
+<% @event.joins.map { |f| f.user_prof }.each do |user_prof| %>
+  <h4 class="user">
+    <span class="user-name">
       <%= link_to user_prof.name, user_prof_path(user_prof.id) %>
-    </h2>
-  <div class="post-body">
-    <%= user_prof.age %>
+    </span>
+    <span class="user-id"><%= user_prof.age %></span>
+  </h4>
+  <div class="event-body">
+    <%= user_prof.introduction %>
   </div>
 <% end %>
 

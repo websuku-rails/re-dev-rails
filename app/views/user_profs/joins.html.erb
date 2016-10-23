@@ -1,7 +1,6 @@
-<%= link_to joins_user_prof_path(@user_prof) do %>
-  <div class="text">参加数</div>
-  <div class="num"><%= @user_prof.joins.count %></div>
-<% end %>
+
+<span class="text">参加数</span>
+<span class="num"><%= @user_prof.joins.count %></span>
 
 <% if @user_prof.joins.empty? %>
   <div class="list-group-item">

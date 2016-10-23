@@ -2,13 +2,14 @@ class EventsController < ApplicationController
 	before_action :set_event, only:[:show, :edit, :update, :destroy, :correct_user]
 	before_action :authenticate_user!
 	before_action :correct_user, only:[:edit, :update, :destroy]
+	before_action :event_params, only:[:update, :create]
 
 	def new
-		@event = Event.new(@event)
+		@event = Event.new
 	end
 
 	def create
-		@event = Event.new(params[:id])
+		@event = Event.new(event_params)
 		@event.user_id = @event.user_prof_id = current_user.id
 		if @event.save
 			redirect_to @event, notice: "投稿しました"
@@ -41,17 +42,17 @@ class EventsController < ApplicationController
 	end
 
 	private
-	def post_params
-		params.require(:event).permit(:title, :date, :time, :body)
-	end
-
-	def set_event
-		@event = Event.find(params[:id])
-	end
-
-	def correct_user
-		if current_user.id != @event.user_id
-			redirect_to root_path
+		def event_params
+			params.require(:event).permit(:title, :date, :time, :body)
 		end
-	end
+
+		def set_event
+			@event = Event.find(params[:id])
+		end
+
+		def correct_user
+			if current_user.id != @event.user_id
+				redirect_to root_path
+			end
+		end
 end

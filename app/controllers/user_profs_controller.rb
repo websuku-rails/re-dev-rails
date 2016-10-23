@@ -2,13 +2,14 @@ class UserProfsController < ApplicationController
 	before_action :set_user_prof, only:[:show, :edit, :update, :destroy, :correct_user]
 	before_action :authenticate_user!
 	before_action :correct_user, only:[:edit, :update, :destroy]
+	before_action :user_prof_params, only:[:update, :create]
 
 	def new
 		@user_prof = UserProf.new(@user_prof)
 	end
 
 	def create
-		@user_prof = UserProf.new(params[:id])
+		@user_prof = UserProf.new(user_prof_params)
 		@user_prof.user_id = current_user.id
 		if @user_prof.save
 			redirect_to root_path, notice: "設定が完了しました" and return
