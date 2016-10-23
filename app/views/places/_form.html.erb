@@ -1,7 +1,18 @@
 <%= form_for(@place) do |f| %>
-	コメント
+	<p>アイコン</p>
+	<%= f.label :place_img %>
+	<%= f.file_field :place_img %>
+
+	<p>店舗名</p>
 	<%= f.text_field :name %>
+
+	<p>価格帯</p>
 	<%= f.text_field :price %>
+
+	<p>url</p>
 	<%= f.text_field :url %>
+
+	<p>
 	<%= f.submit "保存" %>
+	</p>
 <% end %>

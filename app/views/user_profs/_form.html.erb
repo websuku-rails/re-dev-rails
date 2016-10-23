@@ -1,4 +1,7 @@
 <%= form_for(@user_prof) do |f| %>
+	<p>アイコン</p>
+	<%= f.label :user_prof_img %>
+	<%= f.file_field :user_prof_img %>
 
 	<p>name</p>
 	<%= f.text_field :name %>

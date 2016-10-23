@@ -1,6 +1,7 @@
 <h2>カフェリスト</h2>
 <%= link_to "新規登録", new_place_path %>
 <% @places.each do |place| %>
+	<p><%= image_tag place.place_img.url %></p>
 	<h1><%= place.name %></h1>
 	<h1><%= place.price %></h1>
 	<h1><%= place.url %></h1>

@@ -13,7 +13,7 @@ class CreateEventsAndUserProfs < ActiveRecord::Migration[5.0]
     end
 
     create_table :user_profs do |t|
-      t.string   "event_img"
+      t.string   "user_prof_img"
       t.string   "name"
       t.integer  "age"
       t.integer  "gender"

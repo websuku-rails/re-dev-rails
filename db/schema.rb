@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20161023003101) do
   end
 
   create_table "places", force: :cascade do |t|
-    t.string   "plase_img"
+    t.string   "place_img"
     t.string   "name"
     t.string   "url"
     t.integer  "price"
@@ -57,15 +57,15 @@ ActiveRecord::Schema.define(version: 20161023003101) do
   end
 
   create_table "user_profs", force: :cascade do |t|
-    t.string   "event_img"
+    t.string   "user_prof_img"
     t.string   "name"
     t.integer  "age"
     t.integer  "gender"
     t.string   "introduction"
     t.integer  "event_id"
     t.integer  "user_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "users", force: :cascade do |t|

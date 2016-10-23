@@ -1,5 +1,6 @@
 <%= link_to "新規作成", new_event_path %>
 <% @events.each do |event| %>
+	<p><%= image_tag event.event_img.url %></p>
 	<h1><%= event.title %></h1>
 	<h1><%= event.body %></h1>
 	<span>

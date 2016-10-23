@@ -2,14 +2,14 @@ class PlacesController < ApplicationController
 	before_action :set_place, only:[:show, :edit, :update, :destroy, :correct_user]
 	before_action :authenticate_user!
 	before_action :correct_user, only:[:edit, :update, :destroy]
-	before_action :post_params, only:[:update, :create]
+	before_action :place_params, only:[:update, :create]
 
 	def new
 		@place = Place.new(@place)
 	end
 
 	def create
-		@place = Place.new(post_params)
+		@place = Place.new(place_params)
 		@place.user_id = current_user.id
 		if @place.save
 			redirect_to @place, notice: "投稿しました"
@@ -42,7 +42,7 @@ class PlacesController < ApplicationController
 	end
 
 	private
-	def post_params
+	def place_params
 		params.require(:place).permit(:place_img, :name, :url, :price)
 	end
 

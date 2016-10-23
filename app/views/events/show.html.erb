@@ -1,6 +1,9 @@
 <% if notice %>
 	<p><%= notice %></p>
 <% end %>
+<p>アイコン</p>
+<p><%= image_tag @event.event_img.url %></p>
+
 <p>タイトル</p>
 <h1><%= @event.title %></h1>
 
