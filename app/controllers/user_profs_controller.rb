@@ -56,7 +56,7 @@ class UserProfsController < ApplicationController
 
 	private
 	def user_prof_params
-		params.require(:user_prof).permit(:name, :age, :gender, :skillLevel, :introduction)
+		params.require(:user_prof).permit(:rser_prof_img, :name, :age, :gender, :skillLevel, :introduction)
 	end
 
 	def set_user_prof

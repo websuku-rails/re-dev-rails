@@ -43,7 +43,7 @@ class EventsController < ApplicationController
 
 	private
 		def event_params
-			params.require(:event).permit(:title, :date, :time, :body)
+			params.require(:event).permit(:event_img, :title, :date, :time, :body)
 		end
 
 		def set_event

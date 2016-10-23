@@ -2,6 +2,7 @@ class PlacesController < ApplicationController
 	before_action :set_place, only:[:show, :edit, :update, :destroy, :correct_user]
 	before_action :authenticate_user!
 	before_action :correct_user, only:[:edit, :update, :destroy]
+	before_action :post_params, only:[:update, :create]
 
 	def new
 		@place = Place.new(@place)
@@ -42,7 +43,7 @@ class PlacesController < ApplicationController
 
 	private
 	def post_params
-		params.require(:place).permit(:name, :url, :price)
+		params.require(:place).permit(:place_img, :name, :url, :price)
 	end
 
 	def set_place

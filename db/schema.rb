@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20161023003101) do
   end
 
   create_table "events", force: :cascade do |t|
+    t.string   "event_img"
     t.date     "date"
     t.datetime "time"
     t.string   "title"
@@ -40,6 +41,7 @@ ActiveRecord::Schema.define(version: 20161023003101) do
   end
 
   create_table "places", force: :cascade do |t|
+    t.string   "plase_img"
     t.string   "name"
     t.string   "url"
     t.integer  "price"
@@ -55,6 +57,7 @@ ActiveRecord::Schema.define(version: 20161023003101) do
   end
 
   create_table "user_profs", force: :cascade do |t|
+    t.string   "event_img"
     t.string   "name"
     t.integer  "age"
     t.integer  "gender"

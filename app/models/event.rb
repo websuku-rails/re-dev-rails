@@ -4,4 +4,6 @@ class Event < ApplicationRecord
   def joined_by? user_prof
     joins.where(user_prof_id: user_prof.id).exists?
   end
+
+  mount_uploader :event_img, ImageUploader
 end
