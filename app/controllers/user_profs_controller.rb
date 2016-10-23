@@ -12,8 +12,7 @@ class UserProfsController < ApplicationController
 		@user_prof = UserProf.new(user_prof_params)
 		@user_prof.user_id = current_user.id
 		if @user_prof.save
-			redirect_to root_path, notice: "設定が完了しました" and return
-		else
+			redirect_to root_path
 			render :new and return
 		end
 	end
@@ -30,7 +29,7 @@ class UserProfsController < ApplicationController
 
 	def update
 		if @user_prof.update(user_prof_params)
-			redirect_to @user_prof, notice: "編集しました"
+			redirect_to @user_prof
 		else
 			render :edit
 		end
