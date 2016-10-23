@@ -19,7 +19,7 @@ a {
 
 a:hover {
   color: #f65;
-  transition: .5s
+  transition: .5s;
 }
 
 .wrap {
@@ -63,6 +63,15 @@ a:hover {
   justify-content:flex-end;
   align-items: center;
 }
+.justify {
+  flex-direction:row;
+  justify-content: center;
+  align-items: center;
+}
+
+.icons {
+  height: 55vh;
+}
 
 /*
 ===================
@@ -95,12 +104,17 @@ header {
 // 全体の指定
 #wrap-all {
   font-family: 'Noto Sans Japanese';
-  font-size: 1.5rem;
   font-weight: 100;
+  font-size: 1.5rem;
   background-color: #007bbb;
-  height: 100vh;
   li {
     list-style-type: none;
+  }
+  .icon-box {
+    width: 20vw;
+    height: 30vh;
+    border-radius: 5vh;
+    background-color: #e8c253;
   }
   .icon-box-center {
     margin: 0 10vw;
