@@ -1,21 +1,22 @@
-<%= form_for (@event) do |f| %>
-	<p>アイコン</p>
-	<%= f.label :event_img %>
-	<%= f.file_field :event_img %>
+<div class="container">
+	  <%= form_for (@event) do |f| %>
+	  <p>アイコン</p>
+	  <%= f.file_field :event_img %>
 
-	<p>タイトル</p>
-	<%= f.text_field :title %>
+	  <p>タイトル</p>
+	  <%= f.text_field :title %>
 
- 	<p>予定日</p>
-	<%= f.date_select :date, :use_month_numbers => true %>
+ 	  <p>予定日</p>
+	  <%= f.date_select :date, :use_month_numbers => true %>
 
-	<p>予定時</p>
-	<%= f.datetime_select :time, :use_month_numbers => true  %>
+	  <p>予定時</p>
+	  <%= f.datetime_select :time, :use_month_numbers => true  %>
 
-	<p>内容</p>
-	<%= f.text_field :body %>
+	  <p>内容</p>
+	  <%= f.text_area :body, :size => "50x10" %>
 
-	<p>
-		<%= f.submit "保存" %>
-	</p>
-<% end %>
+	  <p>
+	   	<%= f.submit "保存", :style => "width: 100px; margin-left:200px;" %>
+	  </p>
+      <% end %>
+</div>

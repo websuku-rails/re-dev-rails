@@ -1,0 +1,11 @@
+#wrap-all{
+	overflow: hidden;
+}
+.container{
+	width: 70%;
+	height: 20000px;
+	margin: 0 auto;
+	padding: 0 7%;
+	text-align: center;
+	background-color: #e8c253;
+}

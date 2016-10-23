@@ -1,19 +1,27 @@
+<div class="container">
 <%= link_to "新規作成", new_event_path %>
+
+<h2 class="section-title">現在あるイベントの一覧</h2>
+<br>
 <% @events.each do |event| %>
 	<p><%= image_tag event.event_img.url %></p>
-	<h1><%= event.title %></h1>
-	<h1><%= event.body %></h1>
+	<br>
+	<h2><%= event.title %></h2>
+	<h4><%= event.body %></h4>
+	<br>
 	<span>
-		<%= link_to "詳しく見る", event_path(event.id) %>
+		<%= link_to ">このイベントの詳細", event_path(event.id) %>
 	</span>
 	</p>
+	<br>
 	<% if event.joined_by? current_user %>
 		<p>
-			<%= link_to "参加解除", delete_joins_path(event), :method => :delete%>
+			<%= link_to "参加しない", delete_joins_path(event), :method => :delete%>
 		</p>
 	<% else %>
 		<p>
-			<%= link_to "参加しよう", create_joins_path(event), :method => :post %>
+			<%= link_to "参加する", create_joins_path(event), :method => :post %>
 		</p>
 	<% end %>
 <% end %>
+</div>

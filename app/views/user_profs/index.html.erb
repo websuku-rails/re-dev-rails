@@ -1,6 +1,8 @@
+<div class="container">
 <h2>user一覧</h2>
 <% @user_profs.each do |user_prof| %>
 	<%= image_tag user_prof.user_prof_img.url %>
 	<h2><%= user_prof.name %></h2>
 	<%= link_to "詳細", user_prof_path(user_prof.id) %>
 <% end %>
+</div>

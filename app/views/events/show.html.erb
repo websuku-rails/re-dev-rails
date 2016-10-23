@@ -1,3 +1,4 @@
+<div class="container">
 <% if notice %>
 	<p><%= notice %></p>
 <% end %>
@@ -14,9 +15,11 @@
 <h3><%= @event.time %></h3>
 
 <p>本文</p>
-<h3><%= @event.body %></h3>
+<p><%= @event.body %></p>
 
-<%= link_to "編集", edit_event_path %>
+<br>
+<%= link_to "このイベントを編集する", edit_event_path %>
+<br>
 
 <h2>参加予定ユーザー</h2>
 <% @event.joins.map { |f| f.user_prof }.each do |user_prof| %>
@@ -30,5 +33,8 @@
     <%= user_prof.introduction %>
   </div>
 <% end %>
-
+<br>
+<br>
 <%= link_to 'Back', events_path %>
+</div>
+
